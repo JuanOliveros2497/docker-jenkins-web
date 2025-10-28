@@ -1,7 +1,4 @@
-FROM ubuntu
-MAINTAINER Luis Vargas "lanvargas@corhuila.edu.co"
-RUN apt-get update
-RUN apt-get install -y nginx
-ADD web /var/www/html/
-ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"]
-EXPOSE 80
+FROM nginx:alpine
+LABEL maintainer="Luis Vargas <lanvargas@corhuila.edu.co>"
+COPY web /usr/share/nginx/html
+
